@@ -1,6 +1,8 @@
 package com.config;
 
 import com.knowledge.annotation.AnnotationTest;
+import com.knowledge.property_loders.PropsAutoWireBean;
+import com.knowledge.property_loders.PropsAutoWireValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,5 +23,14 @@ public class Application  implements CommandLineRunner{
         System.out.println("Runner running");
         annotationTest.serve();
         annotationTest.performChecks();
+
+        propsAutoWireValue.checkCollections();
+        propsAutoWireBean.checkCollections();
     }
+
+    @Autowired
+    private PropsAutoWireValue propsAutoWireValue;
+    @Autowired
+    private PropsAutoWireBean propsAutoWireBean;
+
 }
